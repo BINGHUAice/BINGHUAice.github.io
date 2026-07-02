@@ -6,65 +6,23 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>冰花ice</copyright>
-        <lastBuildDate>Mon, 11 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://BINGHUAice.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-            <title>Css</title>
-            <link>https://BINGHUAice.github.io/tags/css/</link>
-            <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-            <guid>https://BINGHUAice.github.io/tags/css/</guid>
+        <lastBuildDate>Thu, 02 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://BINGHUAice.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>LEDE</title>
+            <link>https://BINGHUAice.github.io/tags/lede/</link>
+            <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/tags/lede/</guid>
             <description></description>
         </item><item>
-            <title>Html</title>
-            <link>https://BINGHUAice.github.io/tags/html/</link>
-            <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-            <guid>https://BINGHUAice.github.io/tags/html/</guid>
+            <title>OpenWrt</title>
+            <link>https://BINGHUAice.github.io/tags/openwrt/</link>
+            <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/tags/openwrt/</guid>
             <description></description>
         </item><item>
-            <title>Markdown</title>
-            <link>https://BINGHUAice.github.io/tags/markdown/</link>
-            <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-            <guid>https://BINGHUAice.github.io/tags/markdown/</guid>
-            <description></description>
-        </item><item>
-            <title>Themes</title>
-            <link>https://BINGHUAice.github.io/tags/themes/</link>
-            <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
-            <guid>https://BINGHUAice.github.io/tags/themes/</guid>
-            <description></description>
-        </item><item>
-            <title>Tag With Whitespaces</title>
-            <link>https://BINGHUAice.github.io/tags/tag-with-whitespaces/</link>
-            <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-            <guid>https://BINGHUAice.github.io/tags/tag-with-whitespaces/</guid>
-            <description></description>
-        </item><item>
-            <title>Text</title>
-            <link>https://BINGHUAice.github.io/tags/text/</link>
-            <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
-            <guid>https://BINGHUAice.github.io/tags/text/</guid>
-            <description></description>
-        </item><item>
-            <title>Emoji</title>
-            <link>https://BINGHUAice.github.io/tags/emoji/</link>
-            <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
-            <guid>https://BINGHUAice.github.io/tags/emoji/</guid>
-            <description></description>
-        </item><item>
-            <title>ماركداون</title>
-            <link>https://BINGHUAice.github.io/tags/%D9%85%D8%A7%D8%B1%D9%83%D8%AF%D8%A7%D9%88%D9%86/</link>
-            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-            <guid>https://BINGHUAice.github.io/tags/%D9%85%D8%A7%D8%B1%D9%83%D8%AF%D8%A7%D9%88%D9%86/</guid>
-            <description></description>
-        </item><item>
-            <title>نص</title>
-            <link>https://BINGHUAice.github.io/tags/%D9%86%D8%B5/</link>
-            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-            <guid>https://BINGHUAice.github.io/tags/%D9%86%D8%B5/</guid>
-            <description></description>
-        </item><item>
-            <title>وسم مع فراغات</title>
-            <link>https://BINGHUAice.github.io/tags/%D9%88%D8%B3%D9%85-%D9%85%D8%B9-%D9%81%D8%B1%D8%A7%D8%BA%D8%A7%D8%AA/</link>
-            <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-            <guid>https://BINGHUAice.github.io/tags/%D9%88%D8%B3%D9%85-%D9%85%D8%B9-%D9%81%D8%B1%D8%A7%D8%BA%D8%A7%D8%AA/</guid>
+            <title>软路由</title>
+            <link>https://BINGHUAice.github.io/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/</link>
+            <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/</guid>
             <description></description>
         </item></channel>
 </rss>

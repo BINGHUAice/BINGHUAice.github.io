@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="为国产龙芯 LOONGSON SoC loongarch64 / 飞腾 Phytium 腾锐 D2000 系列架构添加支持">
+<title>欢迎来到 Lean 的 LEDE 源码仓库</title>
+
+
+<link rel="canonical" href="https://BINGHUAice.github.io/p/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-lean-%E7%9A%84-lede-%E6%BA%90%E7%A0%81%E4%BB%93%E5%BA%93/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap">
+
+
+<link rel="stylesheet" href="/scss/style.min.e62e09c60ba428a627e03568fa3df938f6a8224f815b5846f00816c17d4a0be4.css"><meta property='og:title' content="欢迎来到 Lean 的 LEDE 源码仓库">
+<meta property='og:description' content="为国产龙芯 LOONGSON SoC loongarch64 / 飞腾 Phytium 腾锐 D2000 系列架构添加支持">
+<meta property='og:url' content='https://BINGHUAice.github.io/p/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-lean-%E7%9A%84-lede-%E6%BA%90%E7%A0%81%E4%BB%93%E5%BA%93/'>
+<meta property='og:site_name' content='冰花ice的小船'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='OpenWrt' /><meta property='article:tag' content='LEDE' /><meta property='article:tag' content='软路由' /><meta property='article:published_time' content='2026-07-02T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2026-07-02T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="欢迎来到 Lean 的 LEDE 源码仓库">
+<meta name="twitter:description" content="为国产龙芯 LOONGSON SoC loongarch64 / 飞腾 Phytium 腾锐 D2000 系列架构添加支持">
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        <figure class="site-avatar">
+                <a href="/">
+                    <img src="/img/avatar.png" 
+                        width="150"
+                        height="150"
+                        class="site-logo"
+                        loading="lazy"
+                        alt="Avatar">
+                </a>
+                
+            </figure>
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">冰花ice的小船</a></h1>
+            <h2 class="site-description">冰花ice的小船，大概不会说翻就翻。</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/BINGHUAice'
+                        
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav class="toc-nav" id="TableOfContents">
+                
+  <ol>
+    <li><a href="#官方讨论群">官方讨论群</a></li>
+    <li><a href="#瑞莎网络计算---轻松打造你的网络边缘计算系统">瑞莎网络计算 - 轻松打造你的网络边缘计算系统</a></li>
+    <li><a href="#了解更多">了解更多</a></li>
+    <li><a href="#注意">注意</a></li>
+    <li><a href="#编译命令">编译命令</a>
+      <ol>
+        <li><a href="#使用-wslwsl2-进行编译">使用 WSL/WSL2 进行编译</a></li>
+        <li><a href="#macos-原生系统进行编译">macOS 原生系统进行编译</a></li>
+      </ol>
+    </li>
+    <li><a href="#特别提示">特别提示</a></li>
+  </ol>
+
+            </nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            
+            
+            
+            <a href="/categories/%E5%9B%BA%E4%BB%B6%E7%BC%96%E8%AF%91/" style="background-color: hsl(359, 60%, 84%); color: hsl(359, 60%, 15%);">
+                固件编译
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%AC%A2%E8%BF%8E%E6%9D%A5%E5%88%B0-lean-%E7%9A%84-lede-%E6%BA%90%E7%A0%81%E4%BB%93%E5%BA%93/">欢迎来到 Lean 的 LEDE 源码仓库</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            为国产龙芯 LOONGSON SoC loongarch64 / 飞腾 Phytium 腾锐 D2000 系列架构添加支持
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    
+    
+    
+    <footer class="article-meta">
+        
+            <div class="inline-meta">
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                    <time class="article-time--published" datetime='2026-07-02T00:00:00Z'>2026-07-02</time>
+                
+
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                    <time class="article-time--reading">
+                        阅读时长: 4 分钟
+                    </time>
+                
+            </div>
+        
+
+        
+
+        
+    </footer>
+    
+</div>
+
+</header>
+
+    
+    <aside class="article-toc">
+        <details>
+            <summary>
+                <div class="article-toc-title">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-right"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 6l6 6l-6 6" /></svg>
+                    <span>目录</span>
+                </div>
+            </summary>
+            <nav class="toc-nav">
+                
+  <ol>
+    <li><a href="#官方讨论群">官方讨论群</a></li>
+    <li><a href="#瑞莎网络计算---轻松打造你的网络边缘计算系统">瑞莎网络计算 - 轻松打造你的网络边缘计算系统</a></li>
+    <li><a href="#了解更多">了解更多</a></li>
+    <li><a href="#注意">注意</a></li>
+    <li><a href="#编译命令">编译命令</a>
+      <ol>
+        <li><a href="#使用-wslwsl2-进行编译">使用 WSL/WSL2 进行编译</a></li>
+        <li><a href="#macos-原生系统进行编译">macOS 原生系统进行编译</a></li>
+      </ol>
+    </li>
+    <li><a href="#特别提示">特别提示</a></li>
+  </ol>
+
+            </nav>
+        </details>
+    </aside>
+    
+
+    <section class="article-content">
+    
+    
+    <p>I18N: <a class="link" href="README_EN.md" >English</a> | <a class="link" href="README.md" >简体中文</a> | <a class="link" href="README_JA.md" >日本語</a></p>
+<h2 id="官方讨论群">官方讨论群
+</h2><p>如有技术问题需要讨论或者交流，欢迎加入以下群：</p>
+<ol>
+<li>QQ 讨论群：Op 固件技术研究群，号码 891659613，加群链接：<a class="link" href="https://qm.qq.com/q/IMa6Yf2SgC"  title="Op固件技术研究群"
+     target="_blank" rel="noopener"
+    >点击加入</a></li>
+<li>TG 讨论群：OP 编译官方大群，加群链接：<a class="link" href="https://t.me/JhKgAA6Hx1"  title="OP 编译官方大群"
+     target="_blank" rel="noopener"
+    >点击加入</a></li>
+</ol>
+<h2 id="瑞莎网络计算---轻松打造你的网络边缘计算系统">瑞莎网络计算 - 轻松打造你的网络边缘计算系统
+</h2><p>瑞莎网络计算系列覆盖从入门到高性能的边缘网关场景，从千兆到 2.5G，从四核到六核，全系列基于瑞芯微高可靠处理器，低功耗、稳定运行，适合 7×24 小时网络服务。</p>
+<div class="table-wrapper"><table>
+	<thead>
+			<tr>
+					<th>产品型号</th>
+					<th>E20C</th>
+					<th>E24C</th>
+					<th>E25</th>
+					<th>E52C</th>
+					<th>E54C</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>处理器</td>
+					<td>瑞芯微RK3528A（四核）</td>
+					<td>瑞芯微 RK3528A（四核）</td>
+					<td>瑞芯微 RK3568（四核）</td>
+					<td>瑞芯微 RK3582（六核）</td>
+					<td>瑞芯微 RK3582（六核）</td>
+			</tr>
+			<tr>
+					<td>以太网</td>
+					<td>2x 千兆以太网</td>
+					<td>4x 千兆以太网</td>
+					<td>2x 2.5G 以太网</td>
+					<td>2x 2.5G 以太网</td>
+					<td>4x 千兆以太网</td>
+			</tr>
+			<tr>
+					<td>适用场景</td>
+					<td>入门级软路由 / 家用网关</td>
+					<td>多口家庭路由 / IoT 网关</td>
+					<td>高速 2.5G 家庭 / 小型企业软路由</td>
+					<td>高性能 2.5G 路由 / 边缘计算 / VPN</td>
+					<td>多口网络控制器 / 企业网关</td>
+			</tr>
+	</tbody>
+</table></div>
+<ul>
+<li>多网口设计，为网络计算而生
+<ul>
+<li>提供 2 / 4 网口、千兆 / 2.5G 多种组合，灵活适配家用、宿舍、小型企业与 IoT 网络。</li>
+</ul>
+</li>
+<li>一板多用，系统自由切换
+<ul>
+<li>支持 OpenWrt、Debian、Armbian 等多种系统，可应用于网关、轻量服务器或开发板等领域。</li>
+</ul>
+</li>
+<li>稳定可靠，适合全天候运行
+<ul>
+<li>优秀的金属外壳散热设计 + 瑞芯微平台的低功耗特性，确保长时间满载仍能保持稳定。</li>
+</ul>
+</li>
+<li>开发生态完善，轻松扩展功能
+<ul>
+<li>提供配套文档、源码与社区支持，方便开发者进行二次开发、插件扩展与自定义功能。</li>
+</ul>
+</li>
+</ul>
+<h2 id="了解更多">了解更多
+</h2><ul>
+<li><a class="link" href="https://docs.radxa.com/e/e20c"  target="_blank" rel="noopener"
+    >官方文档</a></li>
+<li><a class="link" href="https://radxa.com/products#NetworkComputer"  target="_blank" rel="noopener"
+    >官网介绍</a></li>
+<li><a class="link" href="https://mall.jd.com/view_search-3967032-31323445-99-1-20-1.html"  target="_blank" rel="noopener"
+    >瑞莎京东店铺</a></li>
+<li><a class="link" href="https://radxa.taobao.com/category-1797203497.htm?spm=a1z10.1-c-s.0.0.eaee3a483AhQEE"  target="_blank" rel="noopener"
+    >瑞莎淘宝店铺</a></li>
+</ul>
+<h2 id="注意">注意
+</h2><ol>
+<li><strong>不要用 root 用户进行编译</strong></li>
+<li>国内用户编译前最好准备好梯子</li>
+<li>默认登陆IP 192.168.1.1 密码 password</li>
+</ol>
+<h2 id="编译命令">编译命令
+</h2><ol>
+<li>
+<p>首先装好 Linux 系统，推荐 Debian 或 Ubuntu LTS 22/24</p>
+</li>
+<li>
+<p>安装编译依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update -y
+</span></span><span class="line"><span class="cl">sudo apt full-upgrade -y
+</span></span><span class="line"><span class="cl">sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential <span class="se">\
+</span></span></span><span class="line"><span class="cl">bzip2 ccache clang cmake cpio curl device-tree-compiler flex gawk gcc-multilib g++-multilib gettext <span class="se">\
+</span></span></span><span class="line"><span class="cl">genisoimage git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libfuse-dev libglib2.0-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl">libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libpython3-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl">libreadline-dev libssl-dev libtool llvm lrzsz libnsl-dev ninja-build p7zip p7zip-full patch pkgconf <span class="se">\
+</span></span></span><span class="line"><span class="cl">python3 python3-pyelftools python3-setuptools qemu-utils rsync scons squashfs-tools subversion <span class="se">\
+</span></span></span><span class="line"><span class="cl">swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>下载源代码，更新 feeds 并选择配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/coolsnowwolf/lede
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> lede
+</span></span><span class="line"><span class="cl">./scripts/feeds update -a
+</span></span><span class="line"><span class="cl">./scripts/feeds install -a
+</span></span><span class="line"><span class="cl">make menuconfig
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>下载 dl 库，编译固件
+（-j 后面是线程数，第一次编译推荐用单线程）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">make download -j8
+</span></span><span class="line"><span class="cl">make <span class="nv">V</span><span class="o">=</span>s -j1
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<p>本套代码保证肯定可以编译成功。里面包括了 R24 所有源代码，包括 IPK 的。</p>
+<p>你可以自由使用，但源码编译二次发布请注明我的 GitHub 仓库链接。谢谢合作！</p>
+<p>二次编译：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> lede
+</span></span><span class="line"><span class="cl">git pull
+</span></span><span class="line"><span class="cl">./scripts/feeds update -a
+</span></span><span class="line"><span class="cl">./scripts/feeds install -a
+</span></span><span class="line"><span class="cl">make defconfig
+</span></span><span class="line"><span class="cl">make download -j8
+</span></span><span class="line"><span class="cl">make <span class="nv">V</span><span class="o">=</span>s -j<span class="k">$(</span>nproc<span class="k">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果需要重新配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rm -rf .config
+</span></span><span class="line"><span class="cl">make menuconfig
+</span></span><span class="line"><span class="cl">make <span class="nv">V</span><span class="o">=</span>s -j<span class="k">$(</span>nproc<span class="k">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>编译完成后输出路径：bin/targets</p>
+<h3 id="使用-wslwsl2-进行编译">使用 WSL/WSL2 进行编译
+</h3><p>由于 WSL 的 PATH 中包含带有空格的 Windows 路径，有可能会导致编译失败，请在 <code>make</code> 前面加上：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">PATH</span><span class="o">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>由于默认情况下，装载到 WSL 发行版的 NTFS 格式的驱动器将不区分大小写，因此大概率在 WSL/WSL2 的编译检查中会返回以下错误：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Build dependency: OpenWrt can only be built on a case-sensitive filesystem
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>一个比较简洁的解决方法是，在 <code>git clone</code> 前先创建 Repository 目录，并为其启用大小写敏感：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="c"># 以管理员身份打开终端</span>
+</span></span><span class="line"><span class="cl"><span class="nb">PS </span><span class="p">&gt;</span> <span class="n">fsutil</span><span class="p">.</span><span class="py">exe</span> <span class="n">file</span> <span class="n">setCaseSensitiveInfo</span> <span class="p">&lt;</span><span class="n">your_local_lede_path</span><span class="p">&gt;</span> <span class="n">enable</span>
+</span></span><span class="line"><span class="cl"><span class="c"># 将本项目 git clone 到开启了大小写敏感的目录 &lt;your_local_lede_path&gt; 中</span>
+</span></span><span class="line"><span class="cl"><span class="nb">PS </span><span class="p">&gt;</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="err">:</span><span class="p">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">coolsnowwolf</span><span class="p">/</span><span class="n">lede</span> <span class="p">&lt;</span><span class="n">your_local_lede_path</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+    <blockquote>
+        <p>对已经 <code>git clone</code> 完成的项目目录执行 <code>fsutil.exe</code> 命令无法生效，大小写敏感只对新增的文件变更有效。</p>
+
+    </blockquote>
+<h3 id="macos-原生系统进行编译">macOS 原生系统进行编译
+</h3><ol>
+<li>
+<p>在 AppStore 中安装 Xcode</p>
+</li>
+<li>
+<p>安装 Homebrew：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>使用 Homebrew 安装工具链、依赖与基础软件包：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">brew unlink awk
+</span></span><span class="line"><span class="cl">brew install coreutils diffutils findutils gawk gnu-getopt gnu-tar grep make ncurses pkg-config wget quilt xz
+</span></span><span class="line"><span class="cl">brew install gcc@11
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>然后输入以下命令，添加到系统环境变量中：</p>
+<ul>
+<li>intel 芯片的 mac</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/opt/coreutils/libexec/gnubin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/opt/findutils/libexec/gnubin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/opt/gnu-getopt/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/opt/gnu-tar/libexec/gnubin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/opt/grep/libexec/gnubin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/opt/gnu-sed/libexec/gnubin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/usr/local/opt/make/libexec/gnubin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>apple 芯片的 mac</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-zsh" data-lang="zsh"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/opt/homebrew/opt/findutils/libexec/gnubin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/opt/homebrew/opt/gnu-getopt/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/opt/homebrew/opt/gnu-tar/libexec/gnubin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/opt/homebrew/opt/grep/libexec/gnubin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PATH=&#34;/opt/homebrew/opt/make/libexec/gnubin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>重新加载一下 shell 启动文件 <code>source ~/.bashrc</code>，然后输入 <code>bash</code> 进入 bash shell，就可以和 Linux 一样正常编译了</p>
+</li>
+</ol>
+<h2 id="特别提示">特别提示
+</h2><ol>
+<li>
+<p>源代码中绝不含任何后门和可以监控或者劫持你的 HTTPS 的闭源软件， SSL 安全是互联网最后的壁垒，安全干净才是固件应该做到的。</p>
+</li>
+<li>
+<p>想学习 OpenWrt 开发，但是摸不着门道？自学没毅力？基础太差？怕太难学不会？跟着佐大学 OpenWrt 开发入门培训班助你能学有所成
+报名地址：<a class="link" href="http://forgotfun.org/2018/04/openwrt-training-2018.html"  title="报名"
+     target="_blank" rel="noopener"
+    >点击报名</a></p>
+</li>
+<li>
+<p>QCA IPQ60xx 开源仓库地址：<a class="link" href="https://github.com/coolsnowwolf/openwrt-gl-ax1800"  target="_blank" rel="noopener"
+    >https://github.com/coolsnowwolf/openwrt-gl-ax1800</a></p>
+</li>
+<li>
+<p>存档版本仓库地址：<a class="link" href="https://github.com/coolsnowwolf/openwrt"  target="_blank" rel="noopener"
+    >https://github.com/coolsnowwolf/openwrt</a></p>
+</li>
+</ol>
+
+</section>
+
+
+    <footer class="article-meta article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/openwrt/">OpenWrt</a>
+        
+            <a href="/tags/lede/">LEDE</a>
+        
+            <a href="/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/">软路由</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright inline-meta">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2026 冰花ice
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="4.0.3">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+
+
+
+<script type="module">
+    import gallery from '\/ts\/gallery.js';
+
+    const articleContent = document.querySelector('.article-content');
+    const shouldLoad = articleContent && (articleContent.querySelectorAll('figure').length > 0 || articleContent.querySelectorAll('img.gallery-image').length > 0);
+    
+    if (shouldLoad) {
+        gallery(articleContent);
+
+        const PhotoSwipeLightbox = (await import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js")).default;
+        const styleHref = "https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.css";
+
+        const styleTag = document.createElement('link');
+        styleTag.rel = 'stylesheet';
+        styleTag.href = styleHref;
+        document.head.appendChild(styleTag);
+
+        const lightbox = new PhotoSwipeLightbox({
+            gallerySelector: '.article-content',
+            childSelector: 'figure a.image-link',
+            pswpModule: () => import("https:\/\/cdn.jsdelivr.net\/npm\/photoswipe@5.4.4\/dist\/photoswipe.esm.min.js")
+        });
+        lightbox.init();
+    }
+</script>
+
+    
+
+            </main>
+        </div>
+        
+<script type="text/javascript" src="/ts/main.f856840516f7c2ad1769a8f5937e3d08d6cb386e2cd2dd025ae696e0ff207958.js" defer></script>
+
+
+    </body>
+</html>
