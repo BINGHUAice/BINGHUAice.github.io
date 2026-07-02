@@ -5,5 +5,12 @@
         <description>Recent content in Categories on BINGHUAice&#39;s Boat</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <copyright>冰花ice</copyright><atom:link href="https://BINGHUAice.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" /></channel>
+        <copyright>冰花ice</copyright>
+        <lastBuildDate>Thu, 02 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://BINGHUAice.github.io/en/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>Firmware Compilation</title>
+            <link>https://BINGHUAice.github.io/en/categories/firmware-compilation/</link>
+            <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/en/categories/firmware-compilation/</guid>
+            <description></description>
+        </item></channel>
 </rss>

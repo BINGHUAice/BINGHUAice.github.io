@@ -5,5 +5,24 @@
         <description>Recent content in Tags on BINGHUAice&#39;s Boat</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en</language>
-        <copyright>冰花ice</copyright><atom:link href="https://BINGHUAice.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" /></channel>
+        <copyright>冰花ice</copyright>
+        <lastBuildDate>Thu, 02 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://BINGHUAice.github.io/en/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>LEDE</title>
+            <link>https://BINGHUAice.github.io/en/tags/lede/</link>
+            <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/en/tags/lede/</guid>
+            <description></description>
+        </item><item>
+            <title>OpenWrt</title>
+            <link>https://BINGHUAice.github.io/en/tags/openwrt/</link>
+            <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/en/tags/openwrt/</guid>
+            <description></description>
+        </item><item>
+            <title>Soft Router</title>
+            <link>https://BINGHUAice.github.io/en/tags/soft-router/</link>
+            <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/en/tags/soft-router/</guid>
+            <description></description>
+        </item></channel>
 </rss>
