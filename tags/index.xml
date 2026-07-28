@@ -6,17 +6,65 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
         <copyright>冰花ice</copyright>
-        <lastBuildDate>Thu, 02 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://BINGHUAice.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
-            <title>LEDE</title>
-            <link>https://BINGHUAice.github.io/tags/lede/</link>
-            <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
-            <guid>https://BINGHUAice.github.io/tags/lede/</guid>
+        <lastBuildDate>Tue, 28 Jul 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://BINGHUAice.github.io/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+            <title>CI/CD</title>
+            <link>https://BINGHUAice.github.io/tags/ci/cd/</link>
+            <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/tags/ci/cd/</guid>
+            <description></description>
+        </item><item>
+            <title>GitHub Actions</title>
+            <link>https://BINGHUAice.github.io/tags/github-actions/</link>
+            <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/tags/github-actions/</guid>
+            <description></description>
+        </item><item>
+            <title>Markdown</title>
+            <link>https://BINGHUAice.github.io/tags/markdown/</link>
+            <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/tags/markdown/</guid>
+            <description></description>
+        </item><item>
+            <title>MT7621</title>
+            <link>https://BINGHUAice.github.io/tags/mt7621/</link>
+            <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/tags/mt7621/</guid>
             <description></description>
         </item><item>
             <title>OpenWrt</title>
             <link>https://BINGHUAice.github.io/tags/openwrt/</link>
-            <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
+            <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
             <guid>https://BINGHUAice.github.io/tags/openwrt/</guid>
+            <description></description>
+        </item><item>
+            <title>Padavan</title>
+            <link>https://BINGHUAice.github.io/tags/padavan/</link>
+            <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/tags/padavan/</guid>
+            <description></description>
+        </item><item>
+            <title>U-Boot</title>
+            <link>https://BINGHUAice.github.io/tags/u-boot/</link>
+            <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/tags/u-boot/</guid>
+            <description></description>
+        </item><item>
+            <title>测试</title>
+            <link>https://BINGHUAice.github.io/tags/%E6%B5%8B%E8%AF%95/</link>
+            <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/tags/%E6%B5%8B%E8%AF%95/</guid>
+            <description></description>
+        </item><item>
+            <title>主题兼容性</title>
+            <link>https://BINGHUAice.github.io/tags/%E4%B8%BB%E9%A2%98%E5%85%BC%E5%AE%B9%E6%80%A7/</link>
+            <pubDate>Tue, 28 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/tags/%E4%B8%BB%E9%A2%98%E5%85%BC%E5%AE%B9%E6%80%A7/</guid>
+            <description></description>
+        </item><item>
+            <title>LEDE</title>
+            <link>https://BINGHUAice.github.io/tags/lede/</link>
+            <pubDate>Thu, 02 Jul 2026 00:00:00 +0000</pubDate>
+            <guid>https://BINGHUAice.github.io/tags/lede/</guid>
             <description></description>
         </item><item>
             <title>软路由</title>
